@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'basicApp/base.html' %}
+{% block body_block %}
+<h1 class="text-center">
+    ToDo List:
+</h1>
+<div class="jumbotron center-block">
+    <div class="container">
+        <ol class="list-group">
+            {% for todo in todos %}
+            <li class="list-group-item">
+                <span class="badge">
+                    <a href="{% url 'todos:todoListDelete' pk=todo.pk %}">
+                        {{todo.id}}
+                    </a>
+                </span>
+                {{todo}}
+            </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endblock %}

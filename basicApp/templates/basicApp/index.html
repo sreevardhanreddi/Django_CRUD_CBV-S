@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'basicApp/base.html' %}
+{% block body_block %}
+
+<h1 class="text-center">Sample todo form:</h1>
+
+<div class="jumbotron center-block">
+	
+	<form method="POST" class="center-block text-center form-group">
+		
+	{{form.as_p}}
+	
+	<br>
+	<input type="submit" class="btn btn-primary" value="Add To Db">
+
+
+	{% csrf_token %}
+	</form>
+
+
+
+</div>
+
+
+
+
+{% endblock %}
