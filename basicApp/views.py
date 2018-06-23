@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from django.views.generic import View,TemplateView,ListView,DeleteView
+from django.views.generic import View,TemplateView,ListView,DeleteView,UpdateView,CreateView
 from django.http import request
 from django.urls import reverse_lazy,reverse
 from basicApp.forms import todoForm
@@ -51,3 +51,12 @@ class TodoDeleteView(DeleteView):
 
 	def get_success_url(self):
 		return reverse('todos:todoList')
+
+
+class TodoUpdateView(UpdateView):
+	template_name = 'basicApp/index.html'
+	model = newTodo
+	fields = ('Todo',)
+
+	# def get_success_url(self):
+	# 	return reverse('todos:todoList')

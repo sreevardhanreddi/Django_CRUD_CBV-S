@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 {% extends 'basicApp/base.html' %}
 {% block body_block %}
-<h1 class="text-center">
-    ToDo List:
-</h1>
-<div class="jumbotron center-block">
-    <div class="container">
-        <ol class="list-group">
-            {% for todo in todos %}
-            <li class="list-group-item">
-                <span class="badge">
-                    <a href="{% url 'todos:todoListDelete' pk=todo.pk %}">
-                        {{todo.id}}
-                    </a>
-                </span>
-                {{todo}}
-            </li>
-            {% endfor %}
-        </ol>
-    </div>
+	<h1 class="text-center" style="margin-top: 50px">
+	ToDo List:
+	</h1>
+	<br>
+	<div class="jumbotron center-block">
+		<div class="container">
+			
+			<ul class="list-group">
+				{% for todo in todos %}
+					<li class="list-group-item d-flex justify-content-between align-items-center hoverable">
+						{{todo}}
+						<span style="font-size: large;">
+							<span class="badge badge-warning">
+								<a href="{% url 'todos:todoListUpdate' pk=todo.pk %}" style="color: white">
+									Edit
+								</a>
+							</span>
+							<span class="badge badge-danger"><a href="{% url 'todos:todoListDelete' pk=todo.pk %}" style="color: white">
+								Delete
+							</a>
+						</span>
+					</span>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
 </div>
 {% endblock %}
